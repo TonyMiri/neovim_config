@@ -130,15 +130,13 @@ return {
         ensure_installed = vim.tbl_keys(servers or {}),
       }
 
-      require('mason-lspconfig').setup {
-        handlers = {
-          function(server_name)
-            local server = servers[server_name] or {}
-            server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            require('lspconfig')[server_name].setup(server)
-          end,
-        },
-      }
+      -- mason-lspconfig v2 removed `handlers`; register settings with vim.lsp.config,
+      -- then mason-lspconfig auto-enables the installed servers.
+      for name, server in pairs(servers) do
+        server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+        vim.lsp.config(name, server)
+      end
+      require('mason-lspconfig').setup()
     end,
   },
 }

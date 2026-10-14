@@ -49,21 +49,21 @@ return {
 				-- Specific Python improvements
 				["@variable.python"] = { fg = colors.palette.dragonWhite },
 				["@function.python"] = { fg = colors.palette.dragonBlue2, bold = true },
-				["@parameter.python"] = { fg = colors.palette.dragonGray },
+				["@variable.parameter.python"] = { fg = colors.palette.dragonGray },
 				["@keyword.python"] = { fg = colors.palette.dragonViolet, bold = true },
-				["@include.python"] = { fg = colors.palette.dragonViolet, bold = true },
-				["@namespace.python"] = { fg = colors.palette.dragonAqua },
+				["@module.python"] = { fg = colors.palette.dragonAqua },
 
 				-- Import statements
-				["@include"] = { fg = colors.palette.dragonViolet, bold = true },
-				["@namespace"] = { fg = colors.palette.dragonTeal },
+				["@keyword.import"] = { fg = colors.palette.dragonViolet, bold = true },
+				["@module"] = { fg = colors.palette.dragonTeal },
+				["@keyword.return"] = { fg = colors.palette.dragonViolet, bold = true },
 
 				-- Make constants stand out
 				["@constant"] = { fg = colors.palette.dragonOrange, bold = true },
 
 				-- Treesitter enhancements for general code
 				["@property"] = { fg = colors.palette.dragonTeal },
-				["@field"] = { fg = colors.palette.dragonTeal },
+				["@variable.member"] = { fg = colors.palette.dragonTeal },
 				["@constructor"] = { fg = colors.palette.dragonYellow, bold = true },
 			}
 		end,
